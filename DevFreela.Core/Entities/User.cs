@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DevFreela.Core.Entities
+﻿namespace DevFreela.Core.Entities
 {
     public class User : BaseEntity
     {
@@ -19,7 +13,6 @@ namespace DevFreela.Core.Entities
             Skills = new List<UserSkill>();
             OwnedProjects = new List<Project>();
             FreelanceProjects = new List<Project>();
-
         }
 
         public string FullName { get; private set; }
@@ -30,7 +23,7 @@ namespace DevFreela.Core.Entities
 
         public DateTime CreatedAt { get; private set; }
 
-        public  bool Active { get; set; }
+        public bool Active { get; set; }
 
         public List<UserSkill> Skills { get; private set; }
         public List<Project> OwnedProjects { get; private set; }
