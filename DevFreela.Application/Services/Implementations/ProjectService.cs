@@ -36,7 +36,6 @@ namespace DevFreela.Application.Services.Implementations
             var project = _dbContext.Projects.SingleOrDefault(p => p.Id == id);
 
             project.Cancel();
-            
         }
 
         public void Finish(int id)
