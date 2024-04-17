@@ -9,8 +9,8 @@ public class DevFreelaDbContext
         Projects = new List<Project>
         {
             new Project("Meu projeto ASPNET Core 1", "Mudei o nome do projeto", 1, 1, 10000),
-            new Project("Meu projeto ASPNET Core 2", "Mudei o nome do projeto", 1, 1, 20000),
-            new Project("Meu projeto ASPNET Core 3", "Mudei o nome do projeto", 1, 1, 30000)
+            new Project("Meu projeto ASPNET Core 2", "Mudei o nome do projeto", 2, 2, 20000),
+            new Project("Meu projeto ASPNET Core 3", "Mudei o nome do projeto", 3, 3, 30000)
         };
 
         Users = new List<User>
