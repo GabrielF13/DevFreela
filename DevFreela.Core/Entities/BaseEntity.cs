@@ -5,6 +5,6 @@
         protected BaseEntity()
         { }
 
-        public int id { get; private set; }
+        public int Id { get; private set; }
     }
 }
