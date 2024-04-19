@@ -2,17 +2,13 @@
 using DevFreela.Infrastructure.Persistence;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevFreela.Application.Queries.GetAllProjects
 {
     public class GetAllProjectsQueryHandler : IRequestHandler<GetAllProjectsQuery, List<ProjectViewModel>>
     {
         private readonly DevFreelaDbContext _dbContext;
+
         public GetAllProjectsQueryHandler(DevFreelaDbContext dbContext)
         {
             _dbContext = dbContext;

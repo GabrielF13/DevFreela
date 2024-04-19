@@ -1,7 +1,5 @@
 ﻿using DevFreela.Application.Queries.GetAllSkills;
-using DevFreela.Application.Services.Interfaces;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevFreela.API.Controllers

@@ -8,7 +8,6 @@ public class DevFreelaDbContext : DbContext
 {
     public DevFreelaDbContext(DbContextOptions<DevFreelaDbContext> options) : base(options)
     {
-
     }
 
     public DbSet<Project> Projects { get; set; }

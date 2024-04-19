@@ -1,4 +1,3 @@
-using DevFreela.API.Model;
 using DevFreela.Application.Commands.CreateProject;
 using DevFreela.Application.Services.Implementations;
 using DevFreela.Application.Services.Interfaces;
