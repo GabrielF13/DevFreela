@@ -1,5 +1,9 @@
 ﻿using DevFreela.API.Model;
+using DevFreela.Application.Commands.CreateUser;
+using DevFreela.Application.Queries.GetUser;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace DevFreela.API.Controllers;
 
@@ -7,16 +11,34 @@ namespace DevFreela.API.Controllers;
 [ApiController]
 public class UsersController : ControllerBase
 {
-    [HttpGet("{id}")]
-    public IActionResult GetById(int id)
+    private readonly IMediator _mediator;
+
+    public UsersController(IMediator mediator)
     {
-        return Ok();
+        _mediator = mediator;
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        var query = new GetUserQuery(id);
+
+        var user = await _mediator.Send(query);
+
+        if (user == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(user);
     }
 
     [HttpPost]
-    public IActionResult Post([FromBody] CreateUserModel createUser)
+    public async Task<IActionResult> Post([FromBody] CreateUserCommand command)
     {
-        return CreatedAtAction(nameof(GetById), new { id = 1 }, createUser);
+        var id = await _mediator.Send(command);
+
+        return CreatedAtAction(nameof(GetById), new { id = id }, command);
     }
 
     [HttpPut("{id}/login")]
