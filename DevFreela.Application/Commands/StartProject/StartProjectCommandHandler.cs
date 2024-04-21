@@ -1,10 +1,5 @@
-﻿using Dapper;
-using DevFreela.Core.Repositories;
-using DevFreela.Infrastructure.Persistence;
+﻿using DevFreela.Core.Repositories;
 using MediatR;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace DevFreela.Application.Commands.StartProject
 {

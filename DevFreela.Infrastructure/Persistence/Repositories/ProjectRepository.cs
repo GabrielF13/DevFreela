@@ -4,13 +4,6 @@ using DevFreela.Core.Repositories;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevFreela.Infrastructure.Persistence.Repositories
 {
@@ -18,6 +11,7 @@ namespace DevFreela.Infrastructure.Persistence.Repositories
     {
         private readonly DevFreelaDbContext _dbContext;
         private readonly string _connectionString;
+
         public ProjectRepository(DevFreelaDbContext dbContext, IConfiguration configuration)
         {
             _dbContext = dbContext;

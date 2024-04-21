@@ -6,7 +6,6 @@ using DevFreela.Application.Commands.StartProject;
 using DevFreela.Application.Commands.UpdateProject;
 using DevFreela.Application.Queries.GetAllProjects;
 using DevFreela.Application.Queries.GetProjectById;
-using DevFreela.Application.Services.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,12 +15,10 @@ namespace DevFreela.API.Controllers;
 [ApiController]
 public class ProjectsController : ControllerBase
 {
-    private readonly IProjectService _projectService;
     private readonly IMediator _mediator;
 
-    public ProjectsController(IProjectService projectService, IMediator mediator)
+    public ProjectsController(IMediator mediator)
     {
-        _projectService = projectService;
         _mediator = mediator;
     }
 
@@ -49,9 +46,14 @@ public class ProjectsController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] CreateProjectCommand command)
     {
-        if (command.Title.Length > 50)
+        if (!ModelState.IsValid)
         {
-            return BadRequest();
+            var messages = ModelState
+                .SelectMany(ms => ms.Value.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList();
+
+            return BadRequest(messages);
         }
 
         var id = await _mediator.Send(command);
@@ -63,9 +65,14 @@ public class ProjectsController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, [FromBody] UpdateProjectCommand comand)
     {
-        if (comand.Description.Length > 200)
+        if (!ModelState.IsValid)
         {
-            return BadRequest();
+            var messages = ModelState
+                .SelectMany(ms => ms.Value.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList();
+
+            return BadRequest(messages);
         }
 
         await _mediator.Send(comand);
@@ -88,6 +95,16 @@ public class ProjectsController : ControllerBase
     [HttpPost("{id}/comments")]
     public async Task<IActionResult> PostComment(int id, [FromBody] CreateCommentCommand command)
     {
+        if (!ModelState.IsValid)
+        {
+            var messages = ModelState
+                .SelectMany(ms => ms.Value.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList();
+
+            return BadRequest(messages);
+        }
+
         await _mediator.Send(command);
 
         return NoContent();

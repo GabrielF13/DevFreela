@@ -1,5 +1,4 @@
-﻿using DevFreela.Application.ViewModels;
-using DevFreela.Core.DTOs;
+﻿using DevFreela.Core.DTOs;
 using MediatR;
 
 namespace DevFreela.Application.Queries.GetAllSkills
