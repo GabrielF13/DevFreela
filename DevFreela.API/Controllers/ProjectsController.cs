@@ -7,11 +7,13 @@ using DevFreela.Application.Commands.UpdateProject;
 using DevFreela.Application.Queries.GetAllProjects;
 using DevFreela.Application.Queries.GetProjectById;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevFreela.API.Controllers;
 
 [Route("api/[controller]")]
+[Authorize]
 [ApiController]
 public class ProjectsController : ControllerBase
 {
@@ -34,6 +36,7 @@ public class ProjectsController : ControllerBase
 
     // api/projects/2
     [HttpGet("{id}")]
+    [AllowAnonymous]
     public async Task<IActionResult> GetById(int id)
     {
         var command = new GetProjectByIdQuery(id);
