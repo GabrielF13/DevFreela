@@ -10,5 +10,9 @@ namespace DevFreela.Application.Commands.FinishProject
         }
 
         public int Id { get; private set; }
+        public string CreditCardNumber { get; set; }
+        public string Cvv { get; set; }
+        public string ExpiresAt { get; set; }
+        public string FullName { get; set; }
     }
 }
