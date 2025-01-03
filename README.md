@@ -12,11 +12,7 @@ O **DevFreela** é uma plataforma de freelancing desenvolvida para conectar clie
   - Listagem e pesquisa de projetos.
   - Contratação de freelancers para projetos.
 - Interação entre usuários:
-  - Envio de mensagens entre clientes e freelancers.
   - Avaliação de projetos e freelancers.
-- Administração financeira:
-  - Controle de pagamentos.
-  - Histórico de transações.
 
 ## Tecnologias Utilizadas
 - **C#**
