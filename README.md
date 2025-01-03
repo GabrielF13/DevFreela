@@ -23,7 +23,6 @@ O **DevFreela** é uma plataforma de freelancing desenvolvida para conectar clie
 - **ASP.NET Core**
 - **Entity Framework Core**
 - **SQL Server**
-- **RabbitMQ** (mensageria)
 - **Docker**
 
 ## Estrutura do Projeto
